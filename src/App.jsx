@@ -7,11 +7,11 @@ import "./App.css";
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [message, setName] = useState("");
-  const [imagePath, setImagePath] = useState("");
+  const [setImagePath] = useState("");
   const [imgUrl, setImgUrl] = useState(""); // State to store converted image URL
 
   async function greet() {
-    setGreetMsg(await invoke('my_custom_command', { invokeMessage: message }));
+    setGreetMsg(await invoke("my_custom_command", { invokeMessage: message }));
   }
 
   async function selectImage() {
@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>Welcome to Tauri!</h1>
+        <h1>ImageTauri</h1>
         <form
           className="row"
           onSubmit={(e) => {

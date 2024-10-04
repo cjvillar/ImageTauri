@@ -110,7 +110,6 @@ button {
     color: #ffffff;
     background-color: #0f0f0f98;
     width: 50%;
-
   }
   button:active {
     background-color: #0f0f0f69;
@@ -130,17 +129,13 @@ button {
     border-radius: 8px; /* Optional: Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
   }
-  
+
   .selected-image-container h2 {
     text-align: center;
   }
-  
+
   .selected-image-container img {
     max-width: 100%;
     height: auto;
   }
-  
-
-
-
 }
