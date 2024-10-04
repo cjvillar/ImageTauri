@@ -105,16 +105,30 @@ button {
     color: #24c8db;
   }
 
+
+  /* Button styles */
   input,
   button {
     color: #ffffff;
-    background-color: #0f0f0f98;
-    width: 50%;
+  background-color: #0f0f0f98;
+  width: 50%;
+  position: fixed; /* Make the button fixed */
+  bottom: 10px; /* Distance from the bottom of the window */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Adjust the position to truly center */
+  border: none; /* Optional: Remove border */
+  padding: 10px; /* Optional: Add padding for better appearance */
+  border-radius: 5px; /* Optional: Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
   }
   button:active {
     background-color: #0f0f0f69;
   }
 
+
+
+
+  /*Image container*/
   .selected-image-container {
     display: flex;
     flex-direction: column;
@@ -124,9 +138,8 @@ button {
     max-height: 90%; /* Adjust this value as needed */
     overflow: auto; /* Enable scrolling if content overflows */
     margin: auto; /* Center the div horizontally */
-    padding: 20px; /* Add padding for better spacing */
-    background-color: #fff; /* Optional: Set a background color */
-    border-radius: 8px; /* Optional: Rounded corners */
+    padding: 5px; /* Add padding for better spacing */
+    background-color: #2d2b2b; /* Set a background color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
   }
 
@@ -137,5 +150,6 @@ button {
   .selected-image-container img {
     max-width: 100%;
     height: auto;
+    border: none;
   }
 }
