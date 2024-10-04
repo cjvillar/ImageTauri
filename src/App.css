@@ -105,28 +105,33 @@ button {
     color: #24c8db;
   }
 
-
   /* Button styles */
-  input,
-  button {
-    color: #ffffff;
-  background-color: #0f0f0f98;
-  width: 50%;
-  position: fixed; /* Make the button fixed */
-  bottom: 10px; /* Distance from the bottom of the window */
-  left: 50%; /* Center the button horizontally */
-  transform: translateX(-50%); /* Adjust the position to truly center */
-  border: none; /* Optional: Remove border */
-  padding: 10px; /* Optional: Add padding for better appearance */
-  border-radius: 5px; /* Optional: Rounded corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
+
+  .button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    position: fixed; /* Position the container */
+    bottom: 10px; /* Distance from the bottom of the window */
+    left: 50%; /* Center the container horizontally */
+    transform: translateX(-50%); /* Adjust the position to truly center */
+    gap: 10px; /* Space between buttons */
   }
+
+  input,
+  .button {
+    color: #ffffff;
+    background-color: #0f0f0f98;
+    width: 50%;
+    border: none; /* Optional: Remove border */
+    padding: 10px; /* Optional: Add padding for better appearance */
+    border-radius: 5px; /* Optional: Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+
   button:active {
     background-color: #0f0f0f69;
   }
-
-
-
 
   /*Image container*/
   .selected-image-container {
