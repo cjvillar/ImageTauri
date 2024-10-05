@@ -15,11 +15,11 @@
         "title": "imagetauri",
         "width": 1000,
         "height": 800,
+        "decorations": true,
         "resizable": true,
         "transparent":false,
         "dragDropEnabled": false,
-        "theme":"Dark",
-        "titleBarStyle":"Transparent",
+        "titleBarStyle":"Overlay",
         "hiddenTitle": false
       }
     ],
@@ -29,7 +29,8 @@
         "enable": true,
         "scope": ["/*", "$DESKTOP/*"]
       }
-    }
+    },
+    "macOSPrivateApi":true
   },
   "bundle": {
     "active": true,

@@ -2,8 +2,8 @@
 
 mod commands;
 //imports
-use commands::file_picker::pick_file; 
-use commands::image_copy::manipulate_image; 
+use commands::file_picker::pick_file;
+use commands::image_copy::manipulate_image;
 
 fn main() {
     tauri::Builder::default()

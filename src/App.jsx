@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   const [imgPath, setImagePath] = useState("");
-  const [imgUrl, setImgUrl] = useState(""); 
+  const [imgUrl, setImgUrl] = useState("");
 
   async function selectImage() {
     const result = await invoke("pick_file");
@@ -37,13 +37,13 @@ function App() {
   }
 
   return (
-    <>
+    <div data-tauri-drag-region>
       <div className="button-container">
         <button className="button" onClick={selectImage}>
           Select JPEG Image From Desktop
         </button>
         <button className="button" onClick={processImage}>
-          Process Image
+          Save Copy As .PNG
         </button>
       </div>
 
@@ -53,7 +53,7 @@ function App() {
           <img src={imgUrl} alt="Selected" />
         </div>
       )}
-    </>
+    </div>
   );
 }
 
