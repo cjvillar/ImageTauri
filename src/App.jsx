@@ -1,7 +1,7 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
 import { convertFileSrc } from "@tauri-apps/api/core";
+import Button from 'react-bootstrap/Button';
 import "./App.css";
 
 function App() {
@@ -47,9 +47,9 @@ function App() {
   return (
     <div data-tauri-drag-region>
       <div className="button-container">
-        <button className="button" onClick={selectImage}>
+        <Button variant="outline-dark" size="sm" onClick={selectImage}>
           Select JPEG Image From Desktop
-        </button>
+        </Button>
         <select
           value={selectedValue}
           onChange={(e) => setSelectedValue(e.target.value)}
@@ -60,15 +60,15 @@ function App() {
             </option>
           ))}
         </select>
-        <button className="button" onClick={processImage}>
+        <Button variant="outline-dark" size="sm" onClick={processImage}>
           Save Copy As {selectedValue}
-        </button>
+        </Button>
       </div>
 
       {imgUrl && ( 
         <div className="selected-image-container">
-          <h2>Selected Image:</h2>
           <img src={imgUrl} alt="Selected" />
+          <p style={{ fontsize: '5px', color: "grey" }}>{imgPath}</p>
         </div>
       )}
     </div>

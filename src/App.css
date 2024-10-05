@@ -1,10 +1,4 @@
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafb);
-}
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -30,17 +24,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
-}
-
-.logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
-}
-
 .row {
   display: flex;
   justify-content: center;
@@ -60,40 +43,6 @@ h1 {
   text-align: center;
 }
 
-input,
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button {
-  cursor: pointer;
-}
-
-button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
-}
-
-input,
-button {
-  outline: none;
-}
-
-#greet-input {
-  margin-right: 5px;
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -112,10 +61,10 @@ button {
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
     position: fixed; /* Position the container */
-    bottom: 10px; /* Distance from the bottom of the window */
-    left: 50%; /* Center the container horizontally */
+    bottom: 50px; /* Distance from the bottom of the window */
+    left: 30%; /* Center the container horizontally */
     transform: translateX(-50%); /* Adjust the position to truly center */
-    gap: 10px; /* Space between buttons */
+    gap: 5px; /* Space between buttons */
   }
 
   input,
@@ -143,9 +92,8 @@ button {
     max-height: 90%; /* Adjust this value as needed */
     overflow: auto; /* Enable scrolling if content overflows */
     margin: auto; /* Center the div horizontally */
-    padding: 5px; /* Add padding for better spacing */
-    background-color: #2d2b2b; /* Set a background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+    padding: 20px; /* Add padding for better spacing */
+    
   }
 
   .selected-image-container h2 {
@@ -156,5 +104,6 @@ button {
     max-width: 100%;
     height: auto;
     border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
   }
 }
