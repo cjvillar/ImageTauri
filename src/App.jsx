@@ -7,6 +7,12 @@ import "./App.css";
 function App() {
   const [imgPath, setImagePath] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [selectedValue, setSelectedValue] = useState("");
+  const options = [
+    { value: "JPEG", label: "SAVE AS JPEG" },
+    { value: "PNG", label: "SAVE AS PNG" },
+    { value: "BMP", label: "SAVE AS BMP" },
+  ];
 
   async function selectImage() {
     const result = await invoke("pick_file");
@@ -22,10 +28,12 @@ function App() {
   async function processImage() {
     try {
       console.log("Image path to process:", imgPath);
+      console.log("Selected format:", selectedValue);
       if (imgPath) {
         const result = await invoke("manipulate_image", {
           filePath: imgPath,
           save: true,
+          imgFormat: selectedValue
         });
         console.log("Image processed:", result);
       } else {
@@ -42,12 +50,22 @@ function App() {
         <button className="button" onClick={selectImage}>
           Select JPEG Image From Desktop
         </button>
+        <select
+          value={selectedValue}
+          onChange={(e) => setSelectedValue(e.target.value)}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
         <button className="button" onClick={processImage}>
-          Save Copy As .PNG
+          Save Copy As {selectedValue}
         </button>
       </div>
 
-      {imgUrl && ( // use imgUrl instead of imagePath
+      {imgUrl && ( 
         <div className="selected-image-container">
           <h2>Selected Image:</h2>
           <img src={imgUrl} alt="Selected" />
