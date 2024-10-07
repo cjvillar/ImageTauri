@@ -27,7 +27,7 @@
       "csp": null,
       "assetProtocol": {
         "enable": true,
-        "scope": ["$DESKTOP/*","**"]
+        "scope": ["$DESKTOP/*","**","$TEMP", "$HOME", "$Data"]
       }
     },
     "macOSPrivateApi":true
