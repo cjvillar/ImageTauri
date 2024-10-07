@@ -10,7 +10,7 @@ import "../App.css";
 
 function SideBar({ imgPath, imgUrl, setImagePath, setImgUrl }) {
   const [selectedValue, setSelectedValue] = useState("");
-
+  
   const options = [
     { value: "JPEG", label: "Format: JPEG" },
     { value: "PNG", label: "Format: PNG" },
@@ -28,11 +28,30 @@ function SideBar({ imgPath, imgUrl, setImagePath, setImgUrl }) {
     }
   }
 
-  async function processImage() {
+  async function convertImageToGrayscale() {
+    try {
+      if (imgPath) {
+        const tempFilePath = await invoke("image_color_command_temp", {
+          filePath: imgPath,
+        });
+        console.log("Temporary Grayscale Image Path:", tempFilePath);
+
+        // temp file path to a URL and send it back to App
+        const grayscaleUrl = convertFileSrc(tempFilePath);
+        setImgUrl(grayscaleUrl); // Set grayscale image URL in App
+      } else {
+        console.error("No image path available for grayscale conversion.");
+      }
+    } catch (error) {
+      console.error("Error converting image to grayscale:", error);
+    }
+  }
+
+  async function processImage(){
     try {
       console.log("Image path to process:", imgPath);
       console.log("Selected format:", selectedValue);
-      if (imgPath) {
+       if (imgPath) {
         const result = await invoke("manipulate_image", {
           filePath: imgPath,
           save: true,
@@ -47,40 +66,20 @@ function SideBar({ imgPath, imgUrl, setImagePath, setImgUrl }) {
     }
   }
 
-  async function convertImageToGrayscale() {
-    try {
-      if (imgPath) {
-        const tempFilePath = await invoke("image_color_command_temp", {
-          filePath: imgPath,
-        });
-        console.log("Temporary Grayscale Image Path:", tempFilePath);
-
-        // Convert the temp file path to a URL and send it back to App
-        const grayscaleUrl = convertFileSrc(tempFilePath);
-        setImgUrl(grayscaleUrl); // Set grayscale image URL in App
-      } else {
-        console.error("No image path available for grayscale conversion.");
-      }
-    } catch (error) {
-      console.error("Error converting image to grayscale:", error);
-    }
-  }
-
   return (
     <Container className="side-bar" style={{ width: "25%", height: "100vh" }}>
       <Row className="h-100">
         <Col className="d-flex flex-column justify-content-between">
           <div className="flex-grow-1">
-            {imgUrl && (
+            {/* {imgUrl && (
               <div style={{ marginBottom: "10px" }}>
                 <img
                   src={imgUrl}
                   alt="Original"
                   style={{ maxWidth: "100%", maxHeight: "200px" }}
                 />
-                <p>Original/Grayscale Image</p>
               </div>
-            )}
+            )} */}
           </div>
           <div className="d-grid gap-2">
             <Button
