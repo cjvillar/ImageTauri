@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SideBar from "./sideBar";
+import SideBar from "./SideBar";
 import "../App.css";
 
 function App() {
@@ -13,10 +13,10 @@ function App() {
         imgPath={imgPath}
         imgUrl={imgUrl}
         setImagePath={setImagePath}
-        setImgUrl={setImgUrl}
+        setImgUrl={setImgUrl} // this will be called to update the displayed image
       />
 
-      {/* image display */}
+      {/* Image display */}
       <div className="main-content">
         {imgUrl ? (
           <div className="selected-image-container">
